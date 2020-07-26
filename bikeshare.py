@@ -18,7 +18,9 @@ def get_filters():
     print('Hello! Let\'s explore some US bikeshare data!')
     # TO DO: get user input for city (chicago, new york city, washington). HINT: Use a while loop to handle invalid inputs
     while True:
+        #here the user can pass the name of city in upper ,lower and mixed case
            city = input("\nWhich city would you like to see the data for New York City, Chicago or Washington ?\n")
+           #here the name of city is convertd into lower case.
            city=city.lower()
            if city not in ('new york city', 'chicago', 'washington'):
                 print('Invalid input . Try again.')
@@ -35,7 +37,7 @@ def get_filters():
                continue
           else:
                break
-              
+
 
 
     # TO DO: get user input for day of week (all, monday, tuesday, ... sunday)
@@ -88,8 +90,8 @@ def load_data(city, month, day):
         # filter by day of week to create the new dataframe
         df = df[df['day_of_week'] == day.title()]
 
-    
-    
+
+
 
 
     return df
@@ -115,7 +117,7 @@ def time_stats(df):
     df['Hour'] = df['Start Time'].dt.hour
     Popular_Hour = df['Hour'].mode()[0]
     print('Most Common Hour: ', Popular_Hour)
-          
+
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -156,13 +158,13 @@ def trip_duration_stats(df):
     # TO DO: display total travel time
     travel_time=df['Trip Duration'].sum()
     print('total travel time:  ', travel_time)
-    
+
 
 
     # TO DO: display mean travel time
     travel_mean=df['Trip Duration'].mean()
     print('mean travel time:  ', travel_mean)
-    
+
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
@@ -186,7 +188,7 @@ def user_stats(df):
         print('counts of gender: ',count_of_gender)
     else:
         print('No information about gender')
-    
+
 
 
     # TO DO: Display earliest, most recent, and most common year of birth
@@ -200,22 +202,22 @@ def user_stats(df):
       print('Most Recent Year: ', recent)
     except:
       print('No data avaliable for this month')
-    
-    
+
+
     try:
         frequent=df['Birth Year'].mode()[0]
         print('most common year of birth: ',frequent)
     except:
         print('No data avaliable for this month')
-    
-        
-   
-    
+
+
+
+
 
 
     print("\nThis took %s seconds." % (time.time() - start_time))
     print('-'*40)
-    
+
 def raw_data(df):
     """Display the raw data to the user and the number of data that they want to see"""
     while True:
@@ -227,13 +229,13 @@ def raw_data(df):
             print('invalid input.try again')
             continue
 
-    while True:         
+    while True:
         if choice.lower() != 'n':
             print(df.iloc[number : number + 5])
             number += 5
             choice = input('\ndo you want to see more raw data? press "y" for yes and "n" for no\n')
         else:
-            break 
+            break
 
 
 def main():
