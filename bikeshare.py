@@ -241,6 +241,8 @@ def raw_data(df):
 
 
 def main():
+    """ this function is responsible to run all function like time_stats,station_stats,trip_stats,etc
+   as when the script runs directly then the condition __name__==__main__ becomes true"""
     while True:
         city, month, day = get_filters()
         df = load_data(city, month, day)
